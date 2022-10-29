@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      {{name}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +14,27 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
+    <!-- <strong>Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+     -->
+     <ion-segment [value]="projects" (ionChange)="segmentHasChanged($event)">
+      <ion-segment-button [value]="projects">
+        <ion-label>Projects</ion-label>
+      </ion-segment-button>
+      <ion-segment-button [value]="articles">
+        <ion-label>Articles</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    
+     <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header" color="light">
+          <ion-label>First Accordion</ion-label>
+        </ion-item>
+        <div class="ion-padding list-item" slot="content" *ngFor="let item of currentList" (click)="itemCLicked($event)">
+          {{item}}
+        </div>
+      </ion-accordion>
+     </ion-accordion-group>
   </div>
 </ion-content>

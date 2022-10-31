@@ -26,13 +26,26 @@
       </ion-segment-button>
     </ion-segment>
     
-     <ion-accordion-group>
-      <ion-accordion value="first">
+     <ion-accordion-group *ngFor="let item of currentList"   value={{item.name}} class="article-accordion">
+      <ion-accordion  > //
         <ion-item slot="header" color="light">
-          <ion-label>First Accordion</ion-label>
+          <ion-label>{{item.name}}</ion-label>
         </ion-item>
-        <div class="ion-padding list-item" slot="content" *ngFor="let item of currentList" (click)="itemCLicked($event)">
-          {{item}}
+        <div class="ion-padding list-item" slot="content" (click)="itemCLicked($event)">
+            <div>
+                <span>
+                  <p>{{item.description}}</p>
+                  <p>(with {{item.collab}})</p>
+                </span>
+                <span> 
+                  <a href={{item.url}}><img src="../science_direct_icon.jpg"></a>  
+                </span>
+                <span> 
+                  <a href={{item.arXiv}}><img src="128x128.png"></a> 
+                </span>
+                  
+          </div>
+          
         </div>
       </ion-accordion>
      </ion-accordion-group>

@@ -6,6 +6,7 @@ interface PersonalWorkItem {
 
 interface Project extends PersonalWorkItem {
   description: string;
+  items: Array<PersonalWorkItem>;
 }
 
 interface Article extends PersonalWorkItem {
@@ -250,10 +251,28 @@ export class HomePage {
 
   ];
 
-  public projects: Project[] = [{ name: "Project", description: "ProjectXX"}];
-  public currentList: PersonalWorkItem[] = this.projects;
+  public projects: Project[] = [{ name: "Minimal Fractions", description: "Minimal Fractions description", items: []},
+  { name: "Outreach", description: "Outreach description", items: []},
+  { name: "Fibrations for Double Categories", description: "Fibrations for Double Categories description", items: []},
+  { name: "Tannaka-Galois", description: "Tannaka-Galois description", items: []},
+  { name: "Model Bicategories", description: "Model Bicategories description", items: []},
+  { name: "Sigma Limits", description: "Sigma Limits description", items: []}];
 
-  constructor() {}
+
+
+
+
+  public currentList: PersonalWorkItem[] = this.articles;
+
+  public added_stuff = false;
+
+  constructor() {
+
+
+    
+
+
+  }
 
   itemCLicked(item) {
     console.log("Maigc!!!", item);
@@ -261,6 +280,37 @@ export class HomePage {
 
   segmentHasChanged(value) {
     this.currentList = value.detail.value;
+    console.log("SC");
+    if (this.added_stuff == false) {
+
+      console.log("Adding");
+      for (let this_art of this.articles) {
+        for (let this_proj of this.projects) {
+          if (this_proj.name == this_art.proj ) {
+            this_proj.items.push( this_art );
+            console.log("Adding" + this_art + "to" + this_proj.name);
+          }
+        }
+      }
+  
+      for (let this_talk of this.talks) {
+        for (let this_proj of this.projects) {
+          if (this_proj.name == this_talk.proj ) {
+            this_proj.items.push( this_talk );
+          }
+        }
+      }
+
+      for (let this_proj of this.projects) {
+        for (let this_item of this_proj.items) {
+          console.log(this_item.name);
+        }
+        // console.log(this_proj.items);
+      }
+
+      this.added_stuff = true;
+    }
+
   }
 
   getDetails(item: Article | Project) {
@@ -273,6 +323,10 @@ export class HomePage {
 
   isTalk(item: Article | Project | Talk): item is Talk {
     return (item as Talk).given_by !== undefined;
+  }
+
+  isProject (item: Article | Project | Talk): item is Project {
+    return (item as Project).items !== undefined;
   }
 
 

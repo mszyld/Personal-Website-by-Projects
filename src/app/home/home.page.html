@@ -30,10 +30,18 @@
     </ion-segment>
 
 
+
+
+
   <div *ngIf="isArticle(currentList[0])">
     <h2 >Articles</h2> 
     <div *ngFor="let item of currentList">
-     <ion-accordion-group *ngIf="item.published" class="article-accordion"  value={{item.name}} >
+     
+      <article-item ></article-item>  
+      <!-- [item]="item" -->
+      <div *ngIf="item.published"> works? </div>
+
+      <!-- <ion-accordion-group *ngIf="item.published" class="article-accordion"  value={{item.name}} >
       <ion-accordion  > 
         <ion-item slot="header"  color="primary" > 
           <ion-label>{{item.year}}. {{item.name}}</ion-label>
@@ -79,7 +87,7 @@
           </div>
         </div>
       </ion-accordion>
-     </ion-accordion-group>
+     </ion-accordion-group> -->
     </div>
 
     <h2>Preprints</h2> 

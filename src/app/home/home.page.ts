@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 
+
 interface PersonalItem {
   name: string;
 }

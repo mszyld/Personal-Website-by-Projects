@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 
-interface PersonalWorkItem {
+
+interface PersonalItem {
   name: string;
 }
 
-interface Project extends PersonalWorkItem {
+interface PersonalWorkItem extends PersonalItem{
+  year: number;
+}
+
+interface Project extends PersonalItem{
   description: string;
   items: Array<PersonalWorkItem>;
 }
@@ -14,7 +19,6 @@ interface Article extends PersonalWorkItem {
   collab: string;
   published: boolean;
   url: string;
-  year: number;
   arXiv: string;
   ref: string;
   proj: string;
@@ -27,7 +31,6 @@ interface Talk extends PersonalWorkItem {
   url_abs: string;
   url_video: string;
   url_slides: string;
-  year: number;
   date: string;
   proj: string;
 }
@@ -262,7 +265,7 @@ export class HomePage {
 
 
 
-  public currentList: PersonalWorkItem[] = this.articles;
+  public currentList: PersonalItem[] = this.articles;
 
   public added_stuff = false;
 
@@ -274,13 +277,13 @@ export class HomePage {
 
   }
 
-  itemCLicked(item) {
-    console.log("Maigc!!!", item);
-  }
+  // itemCLicked(item) {
+  //   console.log("Maigc!!!", item);
+  // }
 
   segmentHasChanged(value) {
     this.currentList = value.detail.value;
-    console.log("SC");
+    // console.log("SC");
     if (this.added_stuff == false) {
 
       console.log("Adding");
@@ -301,21 +304,27 @@ export class HomePage {
         }
       }
 
+      //let sortItems = company.sort
+
       for (let this_proj of this.projects) {
-        for (let this_item of this_proj.items) {
-          console.log(this_item.name);
-        }
-        // console.log(this_proj.items);
+        this_proj.items = this_proj.items.sort((a, b) => (a.year > b.year) ? -1 : 1);
       }
+
+      // for (let this_proj of this.projects) {
+      //   for (let this_item of this_proj.items) {
+      //     console.log(this_item.name);
+      //   }
+      //   // console.log(this_proj.items);
+      // }
 
       this.added_stuff = true;
     }
 
   }
 
-  getDetails(item: Article | Project) {
-      return this.isArticle(item) ? [item.description, item.collab, item.published, item.url]: item.description;
-  }
+  // getDetails(item: Article | Project) {
+  //     return this.isArticle(item) ? [item.description, item.collab, item.published, item.url]: item.description;
+  // }
 
   isArticle(item: Article | Project | Talk): item is Article {
     return (item as Article).collab !== undefined;

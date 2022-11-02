@@ -28,8 +28,9 @@
         <ion-label>Talks</ion-label>
       </ion-segment-button>
     </ion-segment>
-    
-    <div *ngIf="isArticle(currentList[0])">
+
+
+  <div *ngIf="isArticle(currentList[0])">
     <h2 >Articles</h2> 
     <div *ngFor="let item of currentList">
      <ion-accordion-group *ngIf="item.published" class="article-accordion"  value={{item.name}} >
@@ -119,6 +120,7 @@
      </ion-accordion-group>
     </div>
   </div>
+
 
   <div *ngIf="isTalk(currentList[0])">
 
@@ -169,96 +171,7 @@
 
   </div>
 
-    <div *ngIf="isArticle(currentList[0])">
-    <h2 >Articles</h2> 
-    <div *ngFor="let item of currentList">
-     <ion-accordion-group *ngIf="item.published" class="article-accordion"  value={{item.name}} >
-      <ion-accordion  > 
-        <ion-item slot="header"  color="primary" > 
-          <ion-label>{{item.year}}. {{item.name}}</ion-label>
-        </ion-item>
-        <div class="ion-padding list-item" slot="content" (click)="itemCLicked($event)">
-            <div class="article-div-1">
-                <span class="article-span article-span-1">
-                  <div class="article-div-desc">
-                    <p>{{item.description}}</p>
-                  </div>
-                  <div class="article-div-coll" *ngIf="item.collab != ''">
-                    <p>(with {{item.collab}})</p>
-                  </div>
-                </span>
-                <span class="article-span" > 
-                  <div class="div_img_labeling">
-                    <a href={{item.url}}><img class="my128icon" src="./assets/images/science_direct_icon_transp.png"></a>  
-                  </div>
-                  <div class="div_img_labeling">
-                    Journal
-                  </div>
-                </span>
-                <span class="article-span"> 
-                  <div class="div_img_labeling">
-                    <a href={{item.arXiv}}><img class="my128icon" src="./assets/images/128x128.png"></a> 
-                  </div>
-                  <div class="div_img_labeling">
-                    arXiv
-                  </div>
-                </span>
-          </div>
-
-          <div class="article-ref">
-            <p>
-              Journal ref: {{item.ref}}, ({{item.year}}).
-            </p>
-          </div>
-
-          <div class="article-proj">
-            <p>
-              Part of project: {{item.proj}}.
-            </p>
-          </div>
-        </div>
-      </ion-accordion>
-     </ion-accordion-group>
-    </div>
-
-    <h2>Preprints</h2> 
-
-      <div *ngFor="let item of currentList">
-     <ion-accordion-group  *ngIf="item.published==false" class="article-accordion"  value={{item.name}} >
-      <ion-accordion  > 
-        <ion-item slot="header"  color="secondary" > 
-          <ion-label>{{item.year}}. {{item.name}}</ion-label>
-        </ion-item>
-        <div class="ion-padding list-item" slot="content" (click)="itemCLicked($event)">
-            <div class="article-div-1">
-                <span class="article-span article-span-1">
-                  <div class="article-div-desc">
-                    <p>{{item.description}}</p>
-                  </div>
-                  <div class="article-div-coll" *ngIf="item.collab != ''">
-                    <p>(with {{item.collab}})</p>
-                  </div>
-                </span>
-                <span class="article-span"> 
-                  <div class="div_img_labeling">
-                    <a href={{item.arXiv}}><img class="my128icon" src="./assets/images/128x128.png"></a> 
-                  </div>
-                  <div class="div_img_labeling">
-                    arXiv
-                  </div>
-                </span>
-          </div>
-
-          <div class="article-proj">
-            <p>
-              Part of project: {{item.proj}}.
-            </p>
-          </div>
-        </div>
-      </ion-accordion>
-     </ion-accordion-group>
-    </div>
-  </div>
+  
 
   <div *ngIf="isProject(currentList[0])">
     <div *ngFor="let item of currentList">
@@ -269,7 +182,7 @@
                 {{item.name}}
               </ion-label>
           </ion-item>
-          <div class="ion-padding list-item" slot="content" (click)="itemCLicked($event)">
+          <div class="ion-padding project-list-item" slot="content" (click)="itemCLicked($event)">
               <!-- <div class="article-div-1"> -->
                   <!-- <span class="article-span article-span-1"> -->
                     <div class="article-div-desc">
@@ -277,15 +190,161 @@
                     </div>
                   <!-- </span> -->
             <!-- </div> -->
-          </div>
 
-          <p> {{item.items}} </p>
+            <!-- <p> {{item.items}} </p> -->
 
-          <div *ngFor="let this_item of item.items">
-            <div class="article-div-desc">
-              <p> ITEM:  {{ this_item.name  }}</p>
+            <div *ngFor="let this_item of item.items">
+                  <!-- Version 1: 3 options, will want to make into function later when refactoring
+                  Option 1: published article   -->
+
+                <div *ngIf="isArticle(this_item)">
+                  <ion-accordion-group *ngIf="this_item.published" class="article-accordion"  value={{this_item.name}} >
+                        <ion-accordion  > 
+                          <ion-item slot="header"  color="primary" > 
+                            <ion-label>{{this_item.year}}. {{this_item.name}}</ion-label>
+                          </ion-item>
+                          <div class="ion-padding list-item" slot="content" (click)="itemCLicked($event)">
+                              <div class="article-div-1">
+                                  <span class="article-span article-span-1">
+                                    <div class="article-div-desc">
+                                      <p>{{this_item.description}}</p>
+                                    </div>
+                                    <div class="article-div-coll" *ngIf="this_item.collab != ''">
+                                      <p>(with {{this_item.collab}})</p>
+                                    </div>
+                                  </span>
+                                  <span class="article-span" > 
+                                    <div class="div_img_labeling">
+                                      <a href={{this_item.url}}><img class="my128icon" src="./assets/images/science_direct_icon_transp.png"></a>  
+                                    </div>
+                                    <div class="div_img_labeling">
+                                      Journal
+                                    </div>
+                                  </span>
+                                  <span class="article-span"> 
+                                    <div class="div_img_labeling">
+                                      <a href={{this_item.arXiv}}><img class="my128icon" src="./assets/images/128x128.png"></a> 
+                                    </div>
+                                    <div class="div_img_labeling">
+                                      arXiv
+                                    </div>
+                                  </span>
+                              </div>
+                          </div>
+
+                          <div class="article-ref">
+                            <p>
+                              Journal ref: {{this_item.ref}}, ({{this_item.year}}).
+                            </p>
+                          </div>
+
+                          <div class="article-proj">
+                            <p>
+                              Part of project: {{this_item.proj}}.
+                            </p>
+                          </div>
+                        
+                      </ion-accordion>
+                    </ion-accordion-group>
+
+
+                <!-- Option 2: unpublished article (preprint) -->
+
+
+                <ion-accordion-group  *ngIf="this_item.published==false" class="article-accordion"  value={{this_item.name}} >
+                  <ion-accordion  > 
+                    <ion-item slot="header"  color="secondary" > 
+                      <ion-label>{{this_item.year}}. {{this_item.name}}</ion-label>
+                    </ion-item>
+                    <div class="ion-padding list-item" slot="content" (click)="itemCLicked($event)">
+                        <div class="article-div-1">
+                            <span class="article-span article-span-1">
+                              <div class="article-div-desc">
+                                <p>{{this_item.description}}</p>
+                              </div>
+                              <div class="article-div-coll" *ngIf="this_item.collab != ''">
+                                <p>(with {{this_item.collab}})</p>
+                              </div>
+                            </span>
+                            <span class="article-span"> 
+                              <div class="div_img_labeling">
+                                <a href={{this_item.arXiv}}><img class="my128icon" src="./assets/images/128x128.png"></a> 
+                              </div>
+                              <div class="div_img_labeling">
+                                arXiv
+                              </div>
+                            </span>
+                      </div>
+            
+                      <div class="article-proj">
+                        <p>
+                          Part of project: {{this_item.proj}}.
+                        </p>
+                      </div>
+                    </div>
+                  </ion-accordion>
+                 </ion-accordion-group>
+                </div>
+
+                  <!-- Option 3: talk -->
+
+                <div *ngIf="isTalk(this_item)">
+
+                  <ion-accordion-group class="article-accordion"  value={{this_item.name}} >
+                    <ion-accordion  > 
+                      <ion-item slot="header" color="success"  > 
+                        <ion-label>{{this_item.year}} ({{this_item.date}}). {{this_item.name}}</ion-label>
+                      </ion-item>
+                      <div class="ion-padding list-item" slot="content" color="tertiary" (click)="itemCLicked($event)">
+                          <div class="article-div-1">
+                              <span class="article-span article-span-1">
+                                <div class="article-div-desc">
+                                  <p> Given by {{this_item.given_by}} at the <a href={{item.url_at}}>{{this_item.at}}</a>. </p>
+                                </div>
+                                <!-- <div class="article-div-coll" *ngIf="item.collab != ''">
+                                  <p>(with {{item.collab}})</p>
+                                </div> -->
+                                <div class="article-proj">
+                                 <p>
+                                   Part of project: {{this_item.proj}}.
+                                 </p>
+                               </div>
+                              </span>
+                              <span class="article-span" *ngIf="this_item.url_slides != ''"> 
+                                <div>
+                                  <a href={{this_item.url_slides}}><img class="my128icon" src="./assets/images/128x128.png"></a>  
+                                </div>
+                                <div>
+                                  Slides
+                                </div>
+                              </span>
+                              <span class="article-span"  *ngIf="this_item.url_abs != ''"> 
+                                <div>
+                                  <a href={{this_item.url_abs}}><img class="my128icon" src="./assets/images/128x128.png"></a> 
+                                </div>
+                                <div>
+                                  Abstract
+                                </div>
+                              </span>
+                        </div>
+              
+                       
+                      </div>
+                    </ion-accordion>
+                   </ion-accordion-group>
+                </div>
+                
+
+
+
+              <!-- <div class="article-div-desc">
+                <p> ITEM:  {{ this_item.name  }}</p>
+              </div> -->
             </div>
+
           </div>
+
+         
 
 
 

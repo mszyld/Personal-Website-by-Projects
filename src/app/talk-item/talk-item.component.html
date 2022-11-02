@@ -1,0 +1,43 @@
+
+<ion-accordion-group class="article-accordion"  value={{item.name}} >
+  <ion-accordion  > 
+    <ion-item slot="header" color="success"  > 
+      <ion-label>{{item.year}} ({{item.date}}). {{item.name}}</ion-label>
+    </ion-item>
+    <div class="ion-padding list-item" slot="content" color="tertiary" (click)="itemCLicked($event)">
+        <div class="article-div-1">
+            <span class="article-span article-span-1">
+              <div class="article-div-desc">
+                <p> Given by {{item.given_by}} at the <a href={{item.url_at}}>{{item.at}}</a>. </p>
+              </div>
+              <!-- <div class="article-div-coll" *ngIf="item.collab != ''">
+                <p>(with {{item.collab}})</p>
+              </div> -->
+              <div class="article-proj">
+               <p>
+                 Part of project: {{item.proj}}.
+               </p>
+             </div>
+            </span>
+            <span class="article-span" *ngIf="item.url_slides != ''"> 
+              <div>
+                <a href={{item.url_slides}}><img class="my128icon" src="./assets/images/128x128.png"></a>  
+              </div>
+              <div>
+                Slides
+              </div>
+            </span>
+            <span class="article-span"  *ngIf="item.url_abs != ''"> 
+              <div>
+                <a href={{item.url_abs}}><img class="my128icon" src="./assets/images/128x128.png"></a> 
+              </div>
+              <div>
+                Abstract
+              </div>
+            </span>
+      </div>
+
+     
+    </div>
+  </ion-accordion>
+ </ion-accordion-group>

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 
-
 interface PersonalItem {
   name: string;
 }
@@ -21,28 +20,17 @@ interface Article extends PersonalWorkItem {
 }
 
 
-
-
 @Component({
-  selector: 'app-article-item',
-  templateUrl: './article-item.component.html',
-  styleUrls: ['./article-item.component.scss','../home/home.page.scss'],
+  selector: 'app-preprint-item',
+  templateUrl: './preprint-item.component.html',
+  styleUrls: ['./preprint-item.component.scss','../home/home.page.scss'],
 })
+export class PreprintItemComponent implements OnInit {
 
-
-
-
-
-
-export class ArticleItemComponent implements OnInit {
-  
   @Input('value') item: Article;
 
-  constructor() {
-   }
+  constructor() { }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
 }

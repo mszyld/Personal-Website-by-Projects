@@ -287,12 +287,12 @@ export class HomePage {
     // console.log("SC");
     if (this.added_stuff == false) {
 
-      console.log("Adding");
+      // console.log("Adding");
       for (let this_art of this.articles) {
         for (let this_proj of this.projects) {
           if (this_proj.name == this_art.proj ) {
             this_proj.items.push( this_art );
-            console.log("Adding" + this_art + "to" + this_proj.name);
+            // console.log("Adding" + this_art + "to" + this_proj.name);
           }
         }
       }

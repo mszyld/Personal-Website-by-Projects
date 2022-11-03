@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Input } from '@angular/core';
 
-import {PersonalItem, PersonalWorkItem, Project, Article, Talk} from '../home/interfaces'
+import {PersonalItem, PersonalWorkItem, Project, Article, Talk} from '../interfaces'
 
 @Component({
   selector: 'app-project-item',

@@ -14,45 +14,45 @@
   </ion-header>
 
   <div id="container">
-
-     <ion-segment [value]="articles" (ionChange)="segmentHasChanged($event)">
-      <ion-segment-button [value]="projects">
+     <ion-segment [value]=1 (ionChange)="segmentHasChanged($event)">
+      <ion-segment-button [value]=0>
         <ion-label>Projects</ion-label>
       </ion-segment-button>
-      <ion-segment-button [value]="articles">
+      <ion-segment-button [value]=1>
         <ion-label>Articles and Preprints</ion-label>
       </ion-segment-button>
-      <ion-segment-button [value]="talks">
+      <ion-segment-button [value]=2>
         <ion-label>Talks</ion-label>
       </ion-segment-button>
     </ion-segment>
 
-    
-    <div *ngIf="isArticle(currentList[0])">
-      <h2>Articles</h2> 
-      <div *ngFor="let item of currentList">
-        <app-article-item *ngIf="item.published" [value]="item">  </app-article-item>  
+    <div [ngSwitch]="selectedSegment">
+      
+      <div *ngSwitchCase=0>
+        <h2>Projects</h2>
+        <div *ngFor="let item of projects">
+          <app-project-item  [value]="item">  </app-project-item>  
+        </div>
       </div>
 
-      <h2>Preprints</h2> 
-      <div *ngFor="let item of currentList">
-        <app-preprint-item *ngIf="item.published==false" [value]="item">  </app-preprint-item>  
+      <div *ngSwitchCase=1>
+        <h2>Articles</h2> 
+        <div *ngFor="let item of articles">
+          <app-article-item *ngIf="item.published" [value]="item">  </app-article-item>  
+        </div>
+        <h2>Preprints</h2> 
+        <div *ngFor="let item of articles">
+          <app-preprint-item *ngIf="item.published===false" [value]="item">  </app-preprint-item>  
+        </div>
       </div>
+
+      <div *ngSwitchCase=2>
+        <h2>Talks</h2>
+        <div *ngFor="let item of talks">
+          <app-talk-item  [value]="item">  </app-talk-item>  
+        </div>
+      </div>
+
     </div>
-
-    <div *ngIf="isTalk(currentList[0])">
-      <h2>Talks</h2>
-      <div *ngFor="let item of currentList">
-        <app-talk-item  [value]="item">  </app-talk-item>  
-      </div>
-    </div>
-
-    <div *ngIf="isProject(currentList[0])">
-      <h2>Projects</h2>
-      <div *ngFor="let item of currentList">
-        <app-project-item  [value]="item">  </app-project-item>  
-      </div>
-    </div>
-
   </div>
 </ion-content>

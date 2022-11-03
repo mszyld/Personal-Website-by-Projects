@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import {PersonalItem, PersonalWorkItem, Project, Article, Talk} from './DataDefinitions' //, isArticle,  DataFunctions
-//import { isArticle, isTalk, isProject } from './DataDefinitions';
+import {PersonalItem, PersonalWorkItem, Project, Article, Talk, isArticle, isTalk, isProject} from './interfaces' //, isArticle,  DataFunctions
+//import {  } from './DataDefinitions';
 
 @Component({
   selector: 'app-home',
@@ -217,6 +217,88 @@ export class HomePage {
       proj: "Minimal Fractions",
     },
 
+    {
+      name: "Lifting PIE limits with strict projections",
+      given_by: "me",
+      at: "CT 20->21, International Category Theory Meeting Genoa (Italy)",
+      url_at: "https://sites.google.com/view/ct2021",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/Abstract_ct2021_szyld.pdf",
+      url_video: "https://www.youtube.com/watch?v=qKK_1WJnIpA&t=5s",
+      url_slides: "",
+      year: 2021,
+      date: "August 30",
+      proj: "Sigma Limits",
+    },
+
+    {
+      name: "The three F's in bicategory theory",
+      given_by: "me",
+      at: "UNAM Seminar",
+      url_at: "https://sites.google.com/im.unam.mx/seminario-de-categorias-unam/inicio",
+      url_abs: "https://sites.google.com/im.unam.mx/seminario-de-categorias-unam/inicio",
+      url_video: "",
+      url_slides: "",
+      year: 2021,
+      date: "April 7",
+      proj: "Minimal Fractions",
+    },
+
+    {
+      name: "The three F's in bicategory theory",
+      given_by: "me",
+      at: "ATCAT Seminar",
+      url_at: "https://www.mathstat.dal.ca/~mamy/atcat/",
+      url_abs: "https://www.mathstat.dal.ca/~mamy/atcat/",
+      url_video: "",
+      url_slides: "",
+      year: 2021,
+      date: "March 23",
+      proj: "Minimal Fractions",
+    },
+
+//     {
+//       name: "Minimal Bicategories of Fractions and Colimits of Bicategories",
+//       given_by: "me",
+//       at: "ATCAT Seminar",
+//       url_at: "https://www.mathstat.dal.ca/~mamy/atcat/",
+//       url_abs: "https://www.mathstat.dal.ca/~mamy/atcat/",
+//       url_video: "",
+//       url_slides: "",
+//       year: 2021,
+//       date: "October 12",
+//       proj: "Minimal Fractions",
+//     },
+//     {
+//       name: "Minimal Bicategories of Fractions and Colimits of Bicategories",
+//       given_by: "me",
+//       at: "ATCAT Seminar",
+//       url_at: "https://www.mathstat.dal.ca/~mamy/atcat/",
+//       url_abs: "https://www.mathstat.dal.ca/~mamy/atcat/",
+//       url_video: "",
+//       url_slides: "",
+//       year: 2021,
+//       date: "October 12",
+//       proj: "Minimal Fractions",
+//     },
+
+//     {
+//       name: "Minimal Bicategories of Fractions and Colimits of Bicategories",
+//       given_by: "me",
+//       at: "ATCAT Seminar",
+//       url_at: "https://www.mathstat.dal.ca/~mamy/atcat/",
+//       url_abs: "https://www.mathstat.dal.ca/~mamy/atcat/",
+//       url_video: "",
+//       url_slides: "",
+//       year: 2021,
+//       date: "October 12",
+//       proj: "Minimal Fractions",
+//     },
+
+
+// (October 27th, Zoom) Seminar talk "Model bicategories and their homotopy bicategories" (joint work with Descotte M.E. and Dubuc E. J.) at the ATCAT Seminar (abstract and slides).
+// (October 22nd, Zoom) Seminar talk "The Grothendieck Construction for Double Categories" (joint work with M. Bayeh and D. Pronk) at the uOttawa logic seminar (abstract, slides).
+// (March 3rd) Seminar talk "Sigma limits in 2-categories and applications" (partially joint work with Descotte M.E. and Dubuc E. J.) at the ATCAT Seminar at Dalhousie University. (abstract, slides, note it may take a while to load the slides).
+
   ];
 
   public projects: Project[] = [{ name: "Minimal Fractions", description: "Minimal Fractions description", items: []},
@@ -267,16 +349,8 @@ export class HomePage {
   //     return this.isArticle(item) ? [item.description, item.collab, item.published, item.url]: item.description;
   // }
 
-  isArticle(item: Article | Project | Talk): item is Article {
-    return (item as Article).collab !== undefined;
-  }
 
-  isTalk(item: Article | Project | Talk): item is Talk {
-      return (item as Talk).given_by !== undefined;
-  }
-      
-  isProject (item: Article | Project | Talk): item is Project {
-      return (item as Project).items !== undefined;
-  }
+
+
 
 }

@@ -34,6 +34,16 @@ export interface PersonalItem {
     proj: string;
   }
 
+ 
+  export const isArticle = (item: Article | Project | Talk): item is Article => {
+    return (item as Article).collab !== undefined;
+  }
+  export const isTalk = (item: Article | Project | Talk): item is Talk => {
+    return (item as Talk).given_by !== undefined;
+  }
+  export const isProject = (item: Article | Project | Talk): item is Project => {
+      return (item as Project).items !== undefined;
+  }
 
 
 // //@Injectable()

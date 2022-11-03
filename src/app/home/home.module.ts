@@ -22,6 +22,6 @@ import { HomePageRoutingModule } from './home-routing.module';
   ],
   declarations: [HomePage,ArticleItemComponent,PreprintItemComponent,TalkItemComponent,ProjectItemComponent],
   // exports: [ArticleItemComponent],
-  bootstrap: [ArticleItemComponent,PreprintItemComponent,TalkItemComponent,ProjectItemComponent]
+  //bootstrap: [ArticleItemComponent,PreprintItemComponent,TalkItemComponent,ProjectItemComponent]
 })
 export class HomePageModule {}

@@ -1,24 +1,6 @@
 
 import { Component, OnInit, Input } from '@angular/core';
-
-
-interface PersonalItem {
-  name: string;
-}
-
-interface PersonalWorkItem extends PersonalItem{
-  year: number;
-}
-interface Talk extends PersonalWorkItem {
-  given_by: string;
-  at: string;
-  url_at: string;
-  url_abs: string;
-  url_video: string;
-  url_slides: string;
-  date: string;
-  proj: string;
-}
+import {PersonalItem, PersonalWorkItem, Project, Article, Talk} from '../home/DataDefinitions'
 
 @Component({
   selector: 'app-talk-item',

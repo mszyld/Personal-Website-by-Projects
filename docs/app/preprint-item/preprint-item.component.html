@@ -1,0 +1,34 @@
+<ion-accordion-group  class="article-accordion"  value={{item.name}} >
+      <ion-accordion  > 
+        <ion-item slot="header"  color="secondary" > 
+          <ion-label class="big_text_size">{{item.year}}. {{item.name}}</ion-label>
+        </ion-item>
+        <div class="ion-padding list-item" slot="content">
+            <div class="article-div-1">
+                <span class="article-span article-span-1">
+                  <div class="article-div-desc">
+                    <p>{{item.description}}</p>
+                  </div>
+                  <div class="article-div-coll" *ngIf="item.collab != ''">
+                    <p>(with {{item.collab}})</p>
+                  </div>
+                </span>
+                <span class="article-span"> 
+                  <div class="div_img_labeling">
+                    <a href={{item.arXiv}} target="_blank"><img class="my128icon" src="./assets/images/128x128.png"></a> 
+                  </div>
+                  <div class="div_img_labeling">
+                    arXiv
+                  </div>
+                </span>
+          </div>
+
+          <div class="article-proj" *ngIf="showProject">
+            <p>
+              Part of project: 
+              <ion-button color="light" (click)="gotoProject()">{{item.proj}}</ion-button>
+            </p>
+          </div>
+        </div>
+      </ion-accordion>
+     </ion-accordion-group> 

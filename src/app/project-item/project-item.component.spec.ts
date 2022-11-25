@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ProjectItemComponent } from './project-item.component';
 
+
 describe('ProjectItemComponent', () => {
   let component: ProjectItemComponent;
   let fixture: ComponentFixture<ProjectItemComponent>;
@@ -22,3 +23,4 @@ describe('ProjectItemComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

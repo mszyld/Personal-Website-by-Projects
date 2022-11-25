@@ -1,6 +1,20 @@
 import {Project, Article, Talk} from './interfaces' 
 
 export const articles : Article[] = [
+
+     
+
+  { 
+    name: "Double Fibrations", 
+    description: "This paper defines double fibrations (fibrations of double categories) and describes their key examples and properties. In particular, it shows how double fibrations relate to existing fibrational notions such as monoidal fibrations and discrete double fibrations, proves a representation theorem for double fibrations, and shows how double fibrations are a type of internal fibration.", 
+    published: true, 
+    url: "http://www.tac.mta.ca/tac/volumes/38/35/38-35abs.html", 
+    collab: "Geoffrey Cruttwell, Michael Lambert, and Dorette Pronk",
+    year: 2022, 
+    arXiv:"https://arxiv.org/abs/2205.15240", 
+    ref: "Theory and Applications of Categories 38, p.1326-1394",
+    proj: "Fibrations for Double Categories"
+  },
     
     { 
       name: "Model bicategories and their homotopy bicategories", 
@@ -98,20 +112,6 @@ export const articles : Article[] = [
       proj: "Tannaka-Galois"
     },
 
-    
-
-    { 
-      name: "Double Fibrations", 
-      description: "This paper defines double fibrations (fibrations of double categories) and describes their key examples and properties. In particular, it shows how double fibrations relate to existing fibrational notions such as monoidal fibrations and discrete double fibrations, proves a representation theorem for double fibrations, and shows how double fibrations are a type of internal fibration.", 
-      published: false, 
-      url: "", 
-      collab: "Geoffrey Cruttwell, Michael Lambert, and Dorette Pronk",
-      year: 2022, 
-      arXiv:"https://arxiv.org/abs/2205.15240", 
-      ref: "",
-      proj: "Fibrations for Double Categories"
-    },
-
     { 
       name: "The Three F's for Bicategories I: Localization by Fractions is Exact", 
       description: "We study the interaction between the notions of filteredness, fractions and fibrations in the theory of bicategories, generalizing classical results for categories. We give an explicit formula for filtered pseudo-colimits of categories indexed by a bicategory, and we use it to compute the hom-categories of a bicategory of fractions. As a consequence, we show that the canonical pseudo-functor into a bicategory of fractions is exact.", 
@@ -138,7 +138,155 @@ export const articles : Article[] = [
 
   ];
 
+  export const talks_by_others: Talk[] = [
+    // 0
+    {
+      name: "Implementing Double Categories in the Lean Proof Assistant",
+      given_by: "Zach Murray",
+      at: "Science Atlantic MSCS Conference",
+      url_at: "https://mta.ca/current-students/department-mathematics-and-computer-science/science-atlantic-conference-2022",
+      url_abs: "",
+      url_video: "",
+      url_slides: "https://www.mathstat.dal.ca/~mszyld/Zach_slides.pdf",
+      year: 2022,
+      date: "October 15",
+      proj: "Fibrations for Double Categories",
+    },
+    // 1
+    {
+      name: "Colimits of Double Categories",
+      given_by: "Dorette Pronk",
+      at: "Groups, Rings, Lie and Hopf Algebras. IV, Memorial University",
+      url_at: "https://www.mun.ca/aac/workshops/past-workshops/2022/",
+      url_abs: "",
+      url_video: "",
+      url_slides: "https://www.mathstat.dal.ca/~mszyld/Dorette_slides_colim.pdf",
+      year: 2022,
+      date: "May 30",
+      proj: "Fibrations for Double Categories",
+    },
+    // 2
+    {
+      name: "Doubly Lax Colimits of Double Categories with Applications",
+      given_by: "Dorette Pronk",
+      at: "Topos Institute Colloquium",
+      url_at: "https://topos.site/topos-colloquium/2021/",
+      url_abs: "",
+      url_video: "https://topos.site/topos-colloquium/2021/",
+      url_slides: "https://topos.site/topos-colloquium/2021/",
+      year: 2021,
+      date: "October 28",
+      proj: "Fibrations for Double Categories",
+    },
+    // 3
+    {
+      name: "On localizations via homotopies",
+      given_by: "Eduardo Dubuc",
+      at: "Topos Institute Colloquium",
+      url_at: "https://topos.site/topos-colloquium/",
+      url_abs: "",
+      url_video: "https://topos.site/topos-colloquium/",
+      url_slides: "https://topos.site/topos-colloquium/",
+      year: 2022,
+      date: "September 15",
+      proj: "Model Bicategories",
+    },
+    // 4
+    {
+      name: "Doubly Lax Colimits of Double Categories",
+      given_by: "Dorette Pronk",
+      at: "CT 20->21, International Category Theory Meeting Genoa (Italy)",
+      url_at: "https://sites.google.com/view/ct2021",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/Dorette_Abs_CT2021",
+      url_video: "",
+      url_slides: "https://sites.google.com/view/ct2021/programme-speakers",
+      year: 2021,
+      date: "August 30",
+      proj: "Fibrations for Double Categories",
+    },
+    // 5
+    {
+      name: "Colimits in bicategories, fibrations, fractions and filteredness",
+      given_by: "Pablo Bustillo Vazquez",
+      at: "CT 20->21, International Category Theory Meeting Genoa (Italy)",
+      url_at: "https://sites.google.com/view/ct2021",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/Pablo_Abs_CT2021",
+      url_video: "https://www.youtube.com/watch?v=n9CNqloTpC4",
+      url_slides: "",
+      year: 2021,
+      date: "August 30",
+      proj: "Minimal Fractions",
+    },
+    // 6
+    {
+      name: "Transfer of lax and pseudo functor structure",
+      given_by: "Eduardo J. Dubuc",
+      at: "CT 20->21, International Category Theory Meeting Genoa (Italy)",
+      url_at: "https://sites.google.com/view/ct2021",
+      url_abs: "",
+      url_video: "",
+      url_slides: "https://sites.google.com/view/ct2021/programme-speakers",
+      year: 2021,
+      date: "September 3",
+      proj: "Model Bicategories",
+    },
+    // 7      
+    {
+      name: "Model bicategories and their homotopy bicategories",
+      given_by: "M. Emilia Descotte",
+      at: "CT2018 - International Category Theory Meeting, at UAc in Ponta Delgada, Portugal",
+      url_at: "http://www.mat.uc.pt/~ct2018/",
+      url_abs: "http://www.mat.uc.pt/~ct2018/abstracts/descotte.pdf",
+      url_video: "",
+      url_slides: "http://www.mat.uc.pt/~ct2018/slides/M_Descotte.pdf",
+      year: 2018,
+      date: "July 13",
+      proj: "Model Bicategories",
+    },
+    // 8
+    {
+      name: "Quillen's model categories revisited",
+      given_by: "Eduardo Dubuc",
+      at: "CT2018 - International Category Theory Meeting, at UAc in Ponta Delgada, Portugal",
+      url_at: "http://www.mat.uc.pt/~ct2018/",
+      url_abs: "http://www.mat.uc.pt/~ct2018/abstracts/dubuc.pdf",
+      url_video: "",
+      url_slides: "http://www.mat.uc.pt/~ct2018/slides/E_Dubuc.pdf",
+      year: 2018,
+      date: "July 13",
+      proj: "Model Bicategories",
+    },
+    // 9
+    {
+      name: "The Grothendieck Construction in the Lax Setting of Bicategory Theory",
+      given_by: "Pablo Bustillo Vazquez",
+      at: "MCA 2021, Categories and Topology special session",
+      url_at: "https://www.mca2021.org/es/special-sessions/item/34-categories-and-topology",
+      url_abs: "https://www.mca2021.org/tools/view-abstract?code=3480",
+      url_video: "https://www.youtube.com/watch?v=X74_pjo9XIs",
+      url_slides: "",
+      year: 2021,
+      date: "July 16",
+      proj: "Minimal Fractions",
+    },
+    
+
+
+
+    
+    
+
+    
+
+    
+  ]
+
   export const talks: Talk[] = [
+
+ 
+
+    
+
 
     {
       name: "On Tannaka Recognition and Descent for Topoi",
@@ -157,7 +305,7 @@ export const articles : Article[] = [
       name: "An invitation to double categories and double fibrations",
       given_by: "me",
       at: "Algebra, Logic and Topology Seminar, Centre For Mathematics, Univ. of Coimbra",
-      url_at: "http://cmuc.mat.uc.pt › ppresearchgroupseminars",
+      url_at: "https://www.mat.uc.pt/",
       url_abs: "https://www.mathstat.dal.ca/~mszyld/abstract_coimbra_2022.pdf",
       url_video: "",
       url_slides: "",
@@ -254,7 +402,7 @@ export const articles : Article[] = [
       url_slides: "https://www.mathstat.dal.ca/~mamy/atcat/",
       year: 2020,
       date: "October 27",
-      proj: "Model bicategories",
+      proj: "Model Bicategories",
     },
 
     {
@@ -281,15 +429,231 @@ export const articles : Article[] = [
       //note it may take a while to load the slides
       year: 2020,
       date: "March 3",
-      proj: "Minimal Fractions",
+      proj: "Sigma Limits",
     },
+
+    {
+      name: "Sigma limits and applications",
+      given_by: "me",
+      at: " CT OctoberFest 2018, CUNY in New York, USA",
+      url_at: "http://ct-octoberfest.github.io/",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/szyld_abstract_Oct18.pdf",
+      url_video: "",
+      url_slides: "https://www.mathstat.dal.ca/~mszyld/szyld_slides_Oct18.html",
+      year: 2018,
+      date: "October 27",
+      proj: "Sigma Limits",
+    },
+
+    {
+      name: "The homotopy relation in a category with weak equivalences",
+      given_by: "me",
+      at: "CT2018 - International Category Theory Meeting, at UAc in Ponta Delgada, Portugal",
+      url_at: "http://www.mat.uc.pt/~ct2018/",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/szyld_abstract_CT18.pdf",
+      url_video: "",
+      url_slides: "https://www.mathstat.dal.ca/~mszyld/szyld_slides_CT18.pdf",
+      year: 2018,
+      date: "July 8",
+      proj: "Model Bicategories",
+    },
+
+    {
+      name: "Homotopy for weak equivalences ",
+      given_by: "me",
+      at: "Categories superieures, polygraphes et homotopie seminar at Paris Diderot, France",
+      url_at: "http://www.irif.fr/gt/cat/index",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/szyld_homotopywe_abstract.pdf",
+      url_video: "",
+      url_slides: "",
+      year: 2018,
+      date: "April 6",
+      proj: "Model Bicategories",
+    },
+
+    {
+      name: "Homotopy for weak equivalences",
+      given_by: "me",
+      at: "Homotopie en Geometrie Algebrique seminar at the Institut de Mathematiques de Toulouse, France",
+      url_at: "https://www.math.univ-toulouse.fr/?lang=fr",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/szyld_homotopywe_abstract.pdf",
+      url_video: "",
+      url_slides: "",
+      year: 2018,
+      date: "March 25",
+      proj: "Model Bicategories",
+    },
+
+    {
+      name: "A general limit lifting theorem for 2-dimensional monad theory",
+      given_by: "me",
+      at: "CT2017 - International Category Theory Meeting, at UBC in Vancouver, Canada",
+      url_at: "http://www.mat.uc.pt/~ct2017/",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/szyld_lifting_abstract_CT17.pdf",
+      url_video: "",
+      url_slides: "https://www.mathstat.dal.ca/~mszyld/szyld_lifting_slides_CT17.pdf",
+      year: 2017,
+      date: "July 16",
+      proj: "Sigma Limits",
+    },
+
+    
+    {
+      name: "Limit lifting",
+      given_by: "me",
+      at: "XXVI ERAG at ICAS in Buenos Aires, Argentina",
+      url_at: "http://www.mate.unlp.edu.ar/erag/",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/szyld_lifting_abstract_ERAG.pdf",
+      url_video: "",
+      url_slides: "https://www.mathstat.dal.ca/~mszyld/szyld_lifting_slides_ERAG.pdf",
+      year: 2017,
+      date: "December",
+      proj: "Sigma Limits",
+    },
+
+  
+    {
+      name: "Limit lifting for 2-dimensional monad theory",
+      given_by: "me",
+      at: "5th Workshop on Categorical Methods in Non-Abelian Algebra, UCL in Louvain-la-Neuve, Belgium",
+      url_at: "http://www.mat.uc.pt/~mmc/mcana/MCANAfifthworkshop.html",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/szyld_liftingtheorem_abstract.pdf",
+      url_video: "",
+      url_slides: "https://www.mathstat.dal.ca/~mszyld/szyld_lifting_UCL.pdf",
+      year: 2017,
+      date: "June",
+      proj: "Sigma Limits",
+    },
+
+    {
+      name: "General limit lifting",
+      given_by: "me",
+      at: "Categories superieures, polygraphes et homotopie seminar at Paris Diderot, France",
+      url_at: "http://www.irif.fr/gt/cat/index",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/szyld_liftingtheorem_abstract.pdf",
+      url_video: "",
+      url_slides: "",
+      year: 2017,
+      date: "March",
+      proj: "Sigma Limits",
+    },
+
+    {
+      name: "On flat functors",
+      given_by: "me",
+      at: "OU Algebra and Representation Theory Seminar, Oklahoma, USA",
+      url_at: "http://www.ou.edu/",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/OU_abstract.pdf",
+      url_video: "",
+      url_slides: "",
+      year: 2016,
+      date: "October",
+      proj: "Sigma Limits",
+    },
+
+    {
+      name: "The universal properties that lie behind the objects",
+      given_by: "me",
+      at: "UCO Math club, Oklahoma, USA",
+      url_at: "http://www.uco.edu/",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/UCO_abstract.pdf",
+      url_video: "",
+      url_slides: "",
+      year: 2016,
+      date: "October",
+      proj: "Outreach",
+    },
+
+    {
+      name: "Classifying Topoi and Galois Theory (3-lectures course)",
+      given_by: "me",
+      at: "UNEMAT 2014 in Bogota, Colombia",
+      url_at: "http://ciencias.bogota.unal.edu.co/",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/UNEMAT_Cursillo_Szyld.pdf",
+      url_video: "",
+      url_slides: "",
+      year: 2014,
+      date: "July",
+      proj: "Outreach",
+    },
+
+    
+    {
+      name: "Relations in a topos: a new example of a Tannakian category",
+      given_by: "me",
+      at: "UNEMAT 2014 in Bogota, Colombia",
+      url_at: "http://ciencias.bogota.unal.edu.co/",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/UNEMAT_Conferencia_Szyld.pdf",
+      url_video: "",
+      url_slides: "",
+      year: 2014,
+      date: "July",
+      proj: "Tannaka-Galois",
+    },
+
+    {
+      name: "Tannakian techniques in topos representation theory",
+      given_by: "me",
+      at: "IV Latin American Meeting at UNC in Cordoba, Argentina",
+      url_at: "http://www.famaf.unc.edu.ar/~ciem/congresos/clam2012/index.html",
+      url_abs: "https://www.mathstat.dal.ca/~mszyld/abstract_clam_szyld.pdf",
+      url_video: "",
+      url_slides: "",
+      year: 2012,
+      date: "August 6",
+      proj: "Tannaka-Galois",
+    },
+
+    {
+      name: "A Tannakian context for Galois",
+      given_by: "me",
+      at: "XXI Encuentro Rioplatense de Algebra y Geometria at CMAT in Montevideo, Uruguay",
+      url_at: "http://www.cmat.edu.uy/",
+      url_abs: "",
+      url_video: "",
+      url_slides: "https://www.mathstat.dal.ca/~mszyld/ERAG_2011.pdf",
+      year: 2011,
+      date: "August 6",
+      proj: "Tannaka-Galois",
+    },
+
+    {
+      name: "A Tannakian approach to Grothendieck Galois theory",
+      given_by: "me",
+      at: "elENA V, Cordoba, Argentina",
+      url_at: "https://www.famaf.unc.edu.ar/~ciem/congresos/elenas/elenav/index.html",
+      url_abs: "https://www.famaf.unc.edu.ar/~ciem/congresos/elenas/elenav/archivos/comunicaciones/abstract/ComunicacionMartin_Szyld.pdf",
+      url_video: "",
+      url_slides: "",
+      year: 2011,
+      date: "August 9",
+      proj: "Tannaka-Galois",
+    },
+
+    {
+      name: "A Tannakian approach to Grothendieck Galois theory",
+      given_by: "me",
+      at: "annual UMA reunion, Tandil, Argentina",
+      url_at: "http://www.union-matematica.org.ar/ediciones-anteriores.html",
+      url_abs: "",
+      url_video: "",
+      url_slides: "https://www.mathstat.dal.ca/~mszyld/UMA_2010.pdf",
+      year: 2011,
+      date: "August 9",
+      proj: "Tannaka-Galois",
+    },
+
+
+
 
   ];
 
-  export const projects: Project[] = [{ name: "Minimal Fractions", description: "Minimal Fractions description", items: []},
-  { name: "Outreach", description: "Outreach description", items: []},
-  { name: "Fibrations for Double Categories", description: "Fibrations for Double Categories description", items: []},
-  { name: "Tannaka-Galois", description: "Tannaka-Galois description", items: []},
-  { name: "Model Bicategories", description: "Model Bicategories description", items: []},
-  { name: "Sigma Limits", description: "Sigma Limits description", items: []}];
+  export const projects: Project[] = [
+  { name: "Minimal Fractions", description: "", items: [], has: [0,0,0], collaborators: "Dorette Pronk and Pablo Bustillo Vasquez"},
+  { name: "Fibrations for Double Categories", description: "", items: [], has: [0,0,0], collaborators: "Dorette Pronk, Marzieh Bayeh, Geoffrey Cruttwell, Michael Lambert, and Zachary Murray"},
+  { name: "Model Bicategories", description: "", items: [], has: [0,0,0], collaborators: "Eduardo Dubuc and M. Emilia Descotte"},
+  { name: "Sigma Limits", description: "", items: [], has: [0,0,0], collaborators: "Eduardo Dubuc and M. Emilia Descotte"},
+  { name: "Tannaka-Galois", description: "", items: [], has: [0,0,0], collaborators: "Eduardo Dubuc"},
+  { name: "Outreach", description: "", items: [], has: [0,0,0], collaborators: ""},
+];
 

@@ -11,6 +11,7 @@ import {PersonalItem, PersonalWorkItem, Project, Article, Talk} from '../interfa
 
 export class ProjectItemComponent implements OnInit {
   @Input('value') item: Project;
+  @Input('sel') selectedProject: string;
 
   constructor() { }
 

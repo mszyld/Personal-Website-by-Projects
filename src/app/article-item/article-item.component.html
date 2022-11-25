@@ -1,9 +1,9 @@
 <ion-accordion-group class="article-accordion"  value={{item.name}} >
   <ion-accordion  > 
     <ion-item slot="header"  color="primary" > 
-      <ion-label>{{item.year}}. {{item.name}}</ion-label>
+      <ion-label class="big_text_size">{{item.year}}. {{item.name}}</ion-label>
     </ion-item>
-    <div class="ion-padding list-item" slot="content" (click)="itemCLicked($event)">
+    <div class="ion-padding list-item" slot="content">
         <div class="article-div-1">
             <span class="article-span article-span-1">
               <div class="article-div-desc">
@@ -15,7 +15,7 @@
             </span>
             <span class="article-span" > 
               <div class="div_img_labeling">
-                <a href={{item.url}}><img class="my128icon" src="./assets/images/science_direct_icon_transp.png"></a>  
+                <a href={{item.url}} target="_blank"><img class="my128icon" src="./assets/images/science_direct_icon_transp.png"></a>  
               </div>
               <div class="div_img_labeling">
                 Journal
@@ -23,7 +23,7 @@
             </span>
             <span class="article-span"> 
               <div class="div_img_labeling">
-                <a href={{item.arXiv}}><img class="my128icon" src="./assets/images/128x128.png"></a> 
+                <a href={{item.arXiv}} target="_blank"><img class="my128icon" src="./assets/images/128x128.png"></a> 
               </div>
               <div class="div_img_labeling">
                 arXiv
@@ -37,9 +37,11 @@
         </p>
       </div>
 
-      <div class="article-proj">
+      <div class="article-proj" *ngIf="showProject">
         <p>
-          Part of project: {{item.proj}}.
+          Part of project: 
+          <ion-button color="light" (click)="gotoProject()">{{item.proj}}</ion-button>
+          
         </p>
       </div>
     </div>

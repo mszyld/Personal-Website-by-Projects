@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {PersonalItem, PersonalWorkItem, Project, Article, Talk} from '../interfaces'
 
 @Component({
@@ -10,9 +10,15 @@ import {PersonalItem, PersonalWorkItem, Project, Article, Talk} from '../interfa
 export class TalkItemComponent implements OnInit {
 
   @Input('value') item: Talk;
+  @Input('showProject') showProject: boolean;
+  @Output() public onProjectClick = new EventEmitter<string>();
 
-  constructor() { }
-
+  constructor() {
+   }
+   
+   gotoProject( ) {
+    this.onProjectClick.emit(this.item.proj)
+   }
   ngOnInit() {}
 
 }

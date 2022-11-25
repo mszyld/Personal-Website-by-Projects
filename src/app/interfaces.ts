@@ -9,6 +9,8 @@ export  interface PersonalWorkItem extends PersonalItem{
 export  interface Project extends PersonalItem{
   description: string;
   items: Array<PersonalWorkItem>;
+  has: number[];
+  collaborators: string;
 }
 
 export interface Article extends PersonalWorkItem {

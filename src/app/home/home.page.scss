@@ -1,13 +1,3 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 #container strong {
   font-size: 20px;
   line-height: 26px;
@@ -16,12 +6,149 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
-  color: #8c8c8c;
-
   margin: 0;
+  font-family: Tahoma;
 }
 
 #container a {
   text-decoration: none;
+}
+
+#container {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0px;
+  margin-top: 0px;
+  background-color: FloralWhite;
+  height: 100%;
+
+}
+
+ion-content {
+  --background: var(--ion-background-color, FloralWhite);
+}
+
+h2 {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  font-size: 18px;
+}
+
+.project-list-item {
+  background-color: #f4f5f8;
+}
+
+.list-item {
+  background-color: #d7d8da;
+}
+
+.article-accordion{
+  padding: 1ex 5ex;
+}
+
+.my128icon {
+  height: 96px;
+  width: 96px;
+}
+
+.my64icon {
+  height: 64px;
+  width: 84px;
+}
+
+.my48icon {
+  height: 40px;
+  width: 80px;
+}
+
+.my48squareicon {
+  height: 48px;
+  width: 48px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.div_img_labeling {
+  text-align: center;
+}
+
+.article-span {
+  display: inline-block;
+  width: 12.5%;
+  vertical-align: top;
+}
+
+.article-span-1 {
+  width: 75%;
+}
+
+.article-ref {
+  width: 100%;
+  text-align: left;
+  margin-top: 3px;
+}
+
+.article-proj {
+  width: 100%;
+  text-align: left;
+  margin-top: 3px;
+}
+
+.article-div-desc{
+  margin-bottom: 15px;
+}
+
+.article-div-1 {
+  vertical-align: top;
+}
+
+.article-div-coll {
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.project_div {
+  scroll-margin-top: 75px;
+}
+
+.button_center{
+  vertical-align: middle;
+}
+
+.big_text_size {
+  font-size: larger;
+}
+
+.background_floral {
+  background-color: floralwhite;
+}
+
+.big_div {
+  display: block;
+}
+
+.inline_span {
+  display: inline;
+  height: 250px;
+}
+
+.left_span {
+  width: 75%;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.right_span {
+  width: 25%;
+  display: inline-block;
+  padding-top: 10px;
+}
+
+.my_pic {
+  max-height: 250px;
+}
+
+.center_text {
+  text-align: center;
 }

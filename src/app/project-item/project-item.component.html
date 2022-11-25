@@ -1,0 +1,43 @@
+<ion-accordion-group class="article-accordion" value={{this.selectedProject}}> 
+  <!--  -->
+  <ion-accordion value={{item.name}}> 
+    <ion-item slot="header"  color="light" >
+      <!--   -->
+      <ion-label class="big_text_size">
+        {{item.name}}
+      </ion-label>
+    </ion-item>
+    
+    <div class="ion-padding project-list-item" slot="content">
+      
+      <div class="article-div-desc">
+
+        <p *ngIf="item.collaborators!=''"> This is a project in collaboration with {{item.collaborators}}. </p>
+
+        <p> This project has a total of {{item.items.length}} items: 
+          {{item.has[0]}} talk<b class="false_b" *ngIf="item.has[0]!=1">s</b>, 
+          {{item.has[1]}} preprint<b class="false_b" *ngIf="item.has[1]!=1">s</b>, and
+          {{item.has[2]}} article<b class="false_b" *ngIf="item.has[2]!=1">s</b>.</p>
+
+        <p>{{item.description}}</p>
+      </div>
+
+      <div *ngFor="let this_item of item.items">
+        <div *ngIf="isArticle(this_item)">
+          <!-- Option 1: published article   -->
+           <app-article-item *ngIf="this_item.published" [showProject]="false" [value]="this_item">  </app-article-item>   
+          <!-- Option 2: unpublished article (preprint) -->
+           <app-preprint-item *ngIf="this_item.published==false" [showProject]="false" [value]="this_item">  </app-preprint-item>   
+        </div>
+        <div *ngIf="isTalk(this_item)">
+            <!-- Option 3: talk -->
+           <app-talk-item  [value]="this_item" [showProject]="false">  </app-talk-item>   
+        </div>
+
+      </div>
+      
+    </div>
+
+
+  </ion-accordion>
+</ion-accordion-group>

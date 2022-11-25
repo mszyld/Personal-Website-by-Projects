@@ -7,13 +7,21 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 
 
+ import { ArticleItemComponent } from '../article-item/article-item.component';
+ import { PreprintItemComponent } from '../preprint-item/preprint-item.component';
+ import { TalkItemComponent } from '../talk-item/talk-item.component';
+ import { ProjectItemComponent } from '../project-item/project-item.component';
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage,ArticleItemComponent,PreprintItemComponent,TalkItemComponent,ProjectItemComponent],
+  // exports: [ArticleItemComponent],
+  //bootstrap: [ArticleItemComponent,PreprintItemComponent,TalkItemComponent,ProjectItemComponent]
 })
 export class HomePageModule {}

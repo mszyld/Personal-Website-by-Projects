@@ -1,20 +1,147 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-toolbar >
+  <ion-title class="background_floral">
+    <ion-segment [value]="selectedSegment" (ionChange)="segmentHasChanged($event)" class="top_segment">
+      <ion-segment-button class="top_button" [value]=-1>
+        <ion-label>Main and News</ion-label>
+      </ion-segment-button>
+      <ion-segment-button class="top_button" [value]=0>
+        <ion-label>Projects</ion-label>
+      </ion-segment-button>
+      <ion-segment-button class="top_button" [value]=1>
+        <ion-label>Articles and Preprints</ion-label>
+      </ion-segment-button>
+      <ion-segment-button class="top_button" [value]=2>
+        <ion-label>Talks</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-title>
+</ion-toolbar>
+
+<ion-content class="background_floral">
+  <div id="container" [ngSwitch]="selectedSegment">
+      
+    <div *ngSwitchCase=-1 class="big_div">
+      <div class="top_div">
+
+        <span class="left_span">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title class="center_text">Welcome to my math research home page!</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p> I'm a mathematician from Argentina working on Category Theory and living in Nova Scotia, Canada as a permanent resident.</p>
+              <p>I was a postdoc at <a href="https://www.dal.ca/" target="_blank">Dalhousie University</a> and at the 
+              <a href="https://www.uba.ar/" target="_blank">University of Buenos Aires</a>, where I got my PhD.</p>
+              <p> Clicking the menu on top, you can access {{this.articles.length}} research papers, 
+                  {{this.talks.length}} talks given by me,
+                  and {{this.talks_by_others.length}} talks given by my collaborators and students,
+                  organized in {{this.projects.length}} research projects.
+              </p>
+              <p>Do you want more info on any research item? Is there a broken link? You can contact me: <span class="button_center"><a href="mailto:mszyld@dal.ca"><img class="my48squareicon" src="./assets/images/email-logo.png"></a></span></p>
+            </ion-card-content>
+          </ion-card>
+        </span>
+
+        <span class="right_span">
+          <img class="my_pic"  alt="A picture of me, Martin Szyld" src="./assets/images/martin.gif" > 
+        </span>
+      </div>
+
+      <div class="middle_div">
+        <h3 class="center_text">Latest News</h3>
+        
+        <li>Nov 2022: Our <b>Double Fibrations</b> paper was published in TAC:</li>
+        <app-article-item [value]="articles[0]" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-article-item>  
+        
+        <li>Oct 2022: Talk by Zachary Murray at Science Atlantic about our work with double categories and proof assistants:</li>
+        <app-talk-item  [value]="talks_by_others[0]" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-talk-item>  
+
+        <li>Sep 2022: Talk by Eduardo Dubuc at the Topos Institute about localizations and homotopies:</li>
+        <app-talk-item  [value]="talks_by_others[3]" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-talk-item>  
+
+        <li>Aug 2022: Our <b>Model Bicategories</b> paper was published in Advances in Mathematics:</li>
+        <app-article-item [value]="articles[1]" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-article-item>  
+        
+        <li>June 2022: Talk by me at the 2022 CMS Summer Meeting about Tannaka and Galois theory:</li>
+        <app-talk-item  [value]="talks[0]" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-talk-item>  
+
+        <li>May 2022: Talk by Dorette Pronk at Memorial University about our work with colimits of double categories:</li>
+        <app-talk-item  [value]="talks_by_others[1]" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-talk-item>  
+
+        <li>May 2022: Talk by me at Univ. of Coimbra's ALT Seminar about double categories:</li>
+        <app-talk-item  [value]="talks[1]" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-talk-item>  
+
+        <li>Oct 2021: Talk by Dorette Pronk at the Topos Institute about our doubly lax colimits:</li>
+        <app-talk-item  [value]="talks_by_others[2]" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-talk-item>  
+
+        <li>Aug 2021: Talk by Pablo Bustillo Vazquez at CT 20->21 about our three F's for bicategories work:</li>
+        <app-talk-item  [value]="talks_by_others[5]" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-talk-item>  
+        
+        <li>July 2021: Talk by Pablo Bustillo Vazquez at MCA 2021 about our bicategories work:</li>
+        <app-talk-item  [value]="talks_by_others[9]" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-talk-item>  
+        
+        <li>2021: We organized a Special session at the Mathematical Congress of the Americas:</li>
+        <ion-accordion-group class="article-accordion">
+          <ion-accordion> 
+            <ion-item slot="header"  color="light" > 
+              <ion-label class="big_text_size"> 2021. Categories and Topology, Special session at the Mathematical Congress of the Americas</ion-label>
+            </ion-item>
+            <div class="ion-padding list-item" slot="content">
+              Co-organized with Eduardo Dubuc and Dorette Pronk. 
+              <a href="https://www.mca2021.org/en/special-sessions/item/34-categories-and-topology" target="_blank"> Schedule and abstracts</a>, 
+              <a href="https://www.youtube.com/channel/UC5po2sqHjuuxUcL66bWsuoA/videos" target="_blank">videos</a> of the 23 talks.  
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </div>
+
+      <p>I built this page in 2022 as a first <em>webdev</em> project, using <span class="button_center"><img class="my64icon" src="./assets/images/angular-logo.png"></span> 
+        and <span class="button_center"><img class="my48icon" src="./assets/images/ionic-logo.png"></span>. 
+          Do you want to quickly build a similar webpage? Contact me! <span class="button_center"><a href="mailto:mszyld@dal.ca"><img class="my48squareicon" src="./assets/images/email-logo.png"></a></span>
+      </p>
+    </div>
+
+    <div *ngSwitchCase=0>
+      <h2>There are {{this.projects.length}} projects. Click on each project to see my collaborators, and a list of its 
+        <span class="button_center"><ion-button disabled color="success">talks</ion-button></span>, 
+      <span class="button_center"><ion-button disabled color="secondary">preprints</ion-button></span>, and
+      <span class="button_center"><ion-button disabled color="primary">articles</ion-button></span>.</h2>
+
+      <div *ngFor="let item of projects">
+        <div class="project_div" [id]="item.name">
+          <app-project-item   [value]="item" [sel]="selectedProject">  </app-project-item>  
+        </div>
+      </div>
+    </div>
+
+    <div *ngSwitchCase=1>
+      <h2>There is a total of {{this.articles.length}} research papers. 
+        Click on each published <span class="button_center"><ion-button disabled color="primary">article</ion-button></span>
+        or <span class="button_center"><ion-button disabled color="secondary">preprint</ion-button></span> below for its details. 
+        Then, for each paper you can click on its <span class="button_center"><ion-button disabled color="light">project</ion-button></span> 
+        button to see all the items on that same project.
+      </h2> 
+      <div *ngFor="let item of articles">
+        <app-article-item *ngIf="item.published" [value]="item" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-article-item>  
+        <app-preprint-item *ngIf="item.published===false" [value]="item" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-preprint-item>  
+      </div>
+    </div>
+
+    <div *ngSwitchCase=2>
+      <h2>There are {{this.talks.length}} talks given by me, and below there are {{this.talks_by_others.length}} talks given by my collaborators and students. Click on each 
+        <span class="button_center"><ion-button disabled color="success">talk</ion-button></span> for its details. 
+        Then, for each talk you can click on its <span class="button_center"><ion-button disabled color="light">project</ion-button></span> 
+        button to see all the items on that same project.
+      </h2>
+      <div *ngFor="let item of talks">
+        <app-talk-item  [value]="item" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-talk-item>  
+      </div>
+      <h3 class="center_text"> Talks given by my collaborators and students </h3> 
+      <div *ngFor="let item of talks_by_others">
+          <app-talk-item  [value]="item" [showProject]="true" (onProjectClick)="selectProjectByName($event)">  </app-talk-item>  
+      </div>
+    </div>
   </div>
 </ion-content>

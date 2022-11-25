@@ -1,0 +1,52 @@
+
+<ion-accordion-group class="article-accordion"  value={{item.name}} >
+  <ion-accordion  > 
+    <ion-item slot="header" color="success"  > 
+      <ion-label class="big_text_size">{{item.year}} ({{item.date}}). {{item.name}}</ion-label>
+    </ion-item>
+    <div class="ion-padding list-item" slot="content" color="tertiary">
+        <div class="article-div-1">
+            <span class="article-span article-span-1">
+              <div class="article-div-desc">
+                <p> Given by {{item.given_by}} at the <a href={{item.url_at}} target="_blank">{{item.at}}</a>. </p>
+              </div>
+              <!-- <div class="article-div-coll" *ngIf="item.collab != ''">
+                <p>(with {{item.collab}})</p>
+              </div> -->
+              <div class="article-proj" *ngIf="showProject">
+               <p>
+                 Part of project:           
+                 <ion-button color="light" (click)="gotoProject()">{{item.proj}}</ion-button>
+               </p>
+             </div>
+            </span>
+            <span class="article-span" *ngIf="item.url_slides != ''"> 
+              <div class="div_img_labeling">
+                <a href={{item.url_slides}} target="_blank"><img class="my128icon" src="./assets/images/128x128.png"></a>  
+              </div>
+              <div class="div_img_labeling">
+                Slides
+              </div>
+            </span>
+            <span class="article-span"  *ngIf="item.url_abs != ''"> 
+              <div class="div_img_labeling" >
+                <a href={{item.url_abs}} target="_blank"><img class="my128icon" src="./assets/images/128x128.png"></a> 
+              </div>
+              <div class="div_img_labeling">
+                Abstract
+              </div>
+            </span>
+            <span class="article-span"  *ngIf="item.url_video != ''"> 
+              <div class="div_img_labeling" >
+                <a href={{item.url_video}} target="_blank"><img class="my128icon" src="./assets/images/video-icon.png"></a> 
+              </div>
+              <div class="div_img_labeling">
+                Video
+              </div>
+            </span>
+      </div>
+
+     
+    </div>
+  </ion-accordion>
+ </ion-accordion-group>
